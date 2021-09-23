@@ -1,0 +1,18 @@
+{
+  "verbose": false,
+  "debug": false,
+  "exec": "tsc && node dist/main.js",
+  "ignore": [
+    "node_modules",
+    "**/*.d.ts",
+    "*.test.ts"
+  ],
+  "events": {
+    "restart": ""
+  },
+  "watch": [
+    "./src"
+  ],
+  "ext": "ts",
+  "inspect": true
+}
