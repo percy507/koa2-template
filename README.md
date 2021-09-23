@@ -12,6 +12,10 @@ pnpm i
 
 # 启动服务
 pnpm dev
+
+# mysql
+mysqld --user=root
+killall mysqld
 ```
 
 ### 核心依赖
