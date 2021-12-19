@@ -24,6 +24,7 @@
     "log4js": "^6.3.0",
     "module-alias": "^2.2.2",
     "mysql": "^2.18.1",
+    "nanoid": "^3.1.30",
     "reflect-metadata": "^0.1.13",
     "tslog": "^3.2.2",
     "typeorm": "^0.2.37"
@@ -36,6 +37,7 @@
     "@types/koa__router": "^8.0.8",
     "@types/node": "^16.9.4",
     "cross-env": "^7.0.3",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "typescript": "^4.5.4"
   }
 }

@@ -1,30 +1,35 @@
-import type { File } from 'formidable';
-import koaBody from 'koa-body';
-import path from 'path';
-import fs from 'fs';
-import { uploadDir } from '@/config';
+import type { File } from "formidable";
+import koaBody from "koa-body";
+import path from "path";
+import fs from "fs";
+import { uploadDir } from "@/config";
+import { nanoid } from "nanoid";
 
 export default (): KoaMiddleware => {
   return koaBody({
-    formLimit: '56kb',
-    jsonLimit: '1mb',
-    textLimit: '1mb',
+    formLimit: "56kb",
+    jsonLimit: "1mb",
+    textLimit: "1mb",
     multipart: true,
     formidable: {
       onFileBegin(_, file: File) {
-        const filePath = path.join(uploadDir, file.name as string);
-        const reader = fs.createReadStream(filePath);
-        const upStream = fs.createWriteStream(filePath);
+        file.name = nanoid(16) + path.extname(file.name);
+        file.path = path.join(uploadDir, file.name);
 
-        reader.on('open', function () {
-          reader.pipe(upStream);
-        });
+        // this ==> internal formidable instance
+        // https://github.com/felixge/node-formidable
+        // this.on("file", (_: any, file: File) => {
+        //   const reader = fs.createReadStream(filePath);
+        //   const upStream = fs.createWriteStream(filePath);
 
-        reader.on('error', function (err) {
-          throw err;
-        });
+        //   reader.on("open", function () {
+        //     reader.pipe(upStream);
+        //   });
 
-        file.path = filePath;
+        //   reader.on("error", function (err) {
+        //     throw err;
+        //   });
+        // });
       },
     },
   });
