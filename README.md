@@ -97,7 +97,7 @@ koa-send                    # 返回静态文件
 
 ### TODO（有空再补）
 
-- [ ] 增加 eslint、prettier、commitlint
+- [x] 增加 eslint、prettier、commitlint
 - [ ] 增加接口文档
   - 考虑到现有的 controller 模式下，如何集成第三方文档工具？
 - [ ] 增加测试用例？

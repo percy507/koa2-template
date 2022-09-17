@@ -1,7 +1,8 @@
 import path from 'path';
+
 import devConfig from './c_dev';
-import testConfig from './c_test';
 import prodConfig from './c_prod';
+import testConfig from './c_test';
 
 const env = (process.env.NODE_ENV || 'dev') as NODE_ENV;
 

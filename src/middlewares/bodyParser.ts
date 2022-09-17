@@ -1,18 +1,17 @@
-import type { File } from "formidable";
-import koaBody from "koa-body";
-import path from "path";
-import fs from "fs";
-import { uploadDir } from "@/config";
-import { nanoid } from "nanoid";
+import koaBody from 'koa-body';
+import { nanoid } from 'nanoid';
+import path from 'path';
+
+import { uploadDir } from '@/config';
 
 export default (): KoaMiddleware => {
   return koaBody({
-    formLimit: "56kb",
-    jsonLimit: "1mb",
-    textLimit: "1mb",
+    formLimit: '56kb',
+    jsonLimit: '1mb',
+    textLimit: '1mb',
     multipart: true,
     formidable: {
-      onFileBegin(_, file: File) {
+      onFileBegin(_, file: any) {
         file.name = nanoid(16) + path.extname(file.name);
         file.path = path.join(uploadDir, file.name);
 

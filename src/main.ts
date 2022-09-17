@@ -1,16 +1,19 @@
-import "module-alias/register"; // module alias
-import "reflect-metadata";
-import { createConnection } from "typeorm";
-import Koa from "koa";
-import compose from "koa-compose";
-import { Logger } from "tslog";
-import middlewares from "@/middlewares";
-import initScript from "@/scripts/init";
+import 'module-alias/register'; // module alias
+import 'reflect-metadata';
+
+import Koa from 'koa';
+import compose from 'koa-compose';
+import { Logger } from 'tslog';
+import { createConnection } from 'typeorm';
+
+import middlewares from '@/middlewares';
+import initScript from '@/scripts/init';
 
 // awesome logger, overwrite console
 new Logger({
-  name: "console",
-  dateTimePattern: "year-month-day hour:minute:second",
+  name: 'console',
+  dateTimeTimezone: 'Asia/Shanghai',
+  dateTimePattern: 'year-month-day hour:minute:second',
   displayFunctionName: false,
   overwriteConsole: true,
 });

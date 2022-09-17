@@ -1,8 +1,9 @@
+import type { AnySchema } from 'joi';
 import type * as Koa from 'koa';
 import type { RouterContext } from 'koa__router';
-import type { AnySchema } from 'joi';
 import type { Logger } from 'tslog';
-import { BUSINESS_CODE } from '@/utils/constant';
+
+import type { BUSINESS_CODE } from '@/utils/constant';
 
 declare global {
   type ValueOf<T> = T[keyof T];

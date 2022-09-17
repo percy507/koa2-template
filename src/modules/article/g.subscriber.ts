@@ -1,10 +1,7 @@
+import type { EntitySubscriberInterface, InsertEvent, UpdateEvent } from 'typeorm';
+import { EventSubscriber } from 'typeorm';
+
 import { Article } from './g.entity';
-import {
-  InsertEvent,
-  EventSubscriber,
-  EntitySubscriberInterface,
-  UpdateEvent,
-} from 'typeorm';
 
 @EventSubscriber()
 export class ArticleSubscriber implements EntitySubscriberInterface<Article> {

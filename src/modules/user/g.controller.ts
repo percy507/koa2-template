@@ -1,6 +1,8 @@
 import Jwt from 'jsonwebtoken';
+
 import { JWT_SCREAT } from '@/utils/constant';
 import { BUSINESS_CODE } from '@/utils/constant';
+
 import { loginBodySchema } from './g.schema';
 
 export const login: RouteSchema = {
@@ -19,7 +21,7 @@ export const login: RouteSchema = {
           code,
         },
         JWT_SCREAT,
-        { expiresIn: '2h' }
+        { expiresIn: '2h' },
       );
 
       ctx.res.success(token);

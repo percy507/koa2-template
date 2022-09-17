@@ -1,7 +1,8 @@
 import koaRouter from '@koa/router';
+
+import { baseAPI } from '@/config';
 import paramValidator from '@/middlewares/paramValidator';
 import controllers from '@/modules';
-import { baseAPI } from '@/config';
 
 const router = new koaRouter();
 

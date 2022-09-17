@@ -1,5 +1,7 @@
 import Joi from 'joi';
+
 import { getEnumValues } from '@/utils/parse';
+
 import { ArticleType } from './g.entity';
 
 const article = {
@@ -11,9 +13,8 @@ const article = {
 };
 
 // 创建，所有字段均必填
-export const addArticleSchema = Joi.object(article).fork(
-  Object.keys(article),
-  (schema) => schema.required()
+export const addArticleSchema = Joi.object(article).fork(Object.keys(article), (schema) =>
+  schema.required(),
 );
 
 // 编辑，所有字段均选填，id必填

@@ -1,5 +1,6 @@
 import fs from 'fs';
-import { uploadDir, logDir } from '@/config';
+
+import { logDir, uploadDir } from '@/config';
 
 function checkFolders() {
   const mkdirIfNotExists = (path: string) => {

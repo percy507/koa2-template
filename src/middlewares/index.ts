@@ -1,12 +1,14 @@
 import cors from '@koa/cors';
 import koaJWT from 'koa-jwt';
-import router from './router';
+
+import { pathWhiteList, uploadDir } from '@/config';
+import { JWT_SCREAT } from '@/utils/constant';
+
 import bodyParser from './bodyParser';
-import responseHandler from './responseHandler';
 import errorHandler from './errorHandler';
 import log from './log';
-import { JWT_SCREAT } from '@/utils/constant';
-import { pathWhiteList, uploadDir } from '@/config';
+import responseHandler from './responseHandler';
+import router from './router';
 
 // 跨域处理
 const mwCORS = cors({

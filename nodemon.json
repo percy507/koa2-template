@@ -1,18 +1,12 @@
 {
   "verbose": false,
   "debug": false,
-  "exec": "npx tsc && node dist/main.js",
-  "ignore": [
-    "node_modules",
-    "**/*.d.ts",
-    "*.test.ts"
-  ],
+  "exec": "npx tsc && node -r tsconfig-paths/register dist/main.js",
+  "ignore": ["node_modules", "**/*.d.ts", "*.test.ts"],
   "events": {
     "restart": ""
   },
-  "watch": [
-    "./src"
-  ],
-  "ext": "ts",
+  "watch": ["./src"],
+  "ext": "js,ts",
   "inspect": true
 }

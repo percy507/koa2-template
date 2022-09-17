@@ -1,12 +1,14 @@
 import { getRepository } from 'typeorm';
+
+import { BUSINESS_CODE } from '@/utils/constant';
+
 import { Article } from './g.entity';
 import {
   addArticleSchema,
   editArticleSchema,
-  getArticleListSchema,
   getArticleDetailSchema,
+  getArticleListSchema,
 } from './g.schema';
-import { BUSINESS_CODE } from '@/utils/constant';
 
 export const addArticle: RouteSchema = {
   method: 'post',
@@ -62,12 +64,7 @@ export const getArticleList: RouteSchema = {
     const result = await getRepository(Article)
       .createQueryBuilder('article')
       .orderBy('article.create_date', 'DESC') // 排序
-      .select([
-        'article.id',
-        'article.create_date',
-        'article.title',
-        'article.author',
-      ]) // 获取部分列
+      .select(['article.id', 'article.create_date', 'article.title', 'article.author']) // 获取部分列
       .skip(pageSize * (pageIndex - 1)) // 分页
       .take(pageSize)
       .getManyAndCount();

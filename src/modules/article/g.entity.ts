@@ -1,4 +1,5 @@
-import { Entity, Column } from 'typeorm';
+import { Column, Entity } from 'typeorm';
+
 import { BaseEntity } from '@/modules/common/g.entity';
 
 export enum ArticleType {

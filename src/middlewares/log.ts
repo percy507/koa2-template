@@ -1,5 +1,6 @@
 import log4js from 'log4js';
 import path from 'path';
+
 import { logDir } from '@/config';
 
 log4js.configure({
